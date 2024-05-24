@@ -19,13 +19,13 @@
             let win = check_whos_win();
             if(win)
             {
-                if(win == "<img class=\"center-item\" src=\"./X-2.png\">")
+                if(win == "<img class=\"center-item\" src=\"../imgs/X-2.png\">")
                 {
                     wo = "X";
                     score_p1++;
                     console.log(score_p1);
                 }
-                else if(win == "<img class=\"center-item\" src=\"./O-2.png\">")
+                else if(win == "<img class=\"center-item\" src=\"../imgs/O-2.png\">")
                 {
                     wo = "O";
                     score_p2++;
@@ -44,13 +44,13 @@
         function createImg(player) {
             let img = document.createElement("img");
             img.className = "center-item";
-            img.src = "./" + (player === 1 ? player1_selected : player2_selected) + "-2.png";
+            img.src = "../imgs/" + (player === 1 ? player1_selected : player2_selected) + "-2.png";
             return img;
         }
 
         function updateTurnImage() {
             let turn = document.getElementById('turn-img');
-            let imgSrc = `./${currentPlayer === 1 ? player1_selected : player2_selected}-2.png`;
+            let imgSrc = `../imgs/${currentPlayer === 1 ? player1_selected : player2_selected}-2.png`;
             turn.innerHTML = `<img class="img-svr-middle" src="${imgSrc}">`;
         }
 
@@ -84,7 +84,7 @@
                 document.getElementById('box-of-choosing').classList.add('hidden');
                 document.getElementById('box-of-start').classList.remove('hidden');
                 let turn = document.getElementById('turn-img');
-                turn.innerHTML = "<img class=\"img-svr-middle\" src=\"./" + player1_selected + "-2.png\">";
+                turn.innerHTML = "<img class=\"img-svr-middle\" src=\"../imgs/" + player1_selected + "-2.png\">";
                 
                 let color = document.getElementById('x-icon-selcted');
                 let color_1 = document.getElementById('o-icon-selcted');
@@ -110,8 +110,8 @@
             while(i < buttons.length)
             {
                 tete = buttons[i].innerHTML;
-                if(tete == "<img class=\"center-item\" src=\"./X-2.png\">" ||
-                    tete == "<img class=\"center-item\" src=\"./O-2.png\">")
+                if(tete == "<img class=\"center-item\" src=\"../imgs/X-2.png\">" ||
+                    tete == "<img class=\"center-item\" src=\"../imgs/O-2.png\">")
                     counter++;
                 i++;
             }
@@ -159,7 +159,7 @@
             let restar = document.getElementById('restar');
             let allboxs = document.getElementById('allboxs');
             let icon_win = document.getElementById('icon-who-win');
-            icon_win.innerHTML = "<img style=\"width: 25px;\" src=\"./"+wo+"-2.png\" ></div>"
+            icon_win.innerHTML = "<img style=\"width: 25px;\" src=\"../imgs/"+wo+"-2.png\" ></div>"
             restar.classList.toggle('hidden');
             allboxs.classList.toggle('hidden');
             let score_pl1 = document.getElementById('pl1');
