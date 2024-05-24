@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="button.css">
+    <title>X-O</title>
+
+    <style>
+        .body {
+            background-color: #192a32;
+            font-family: Roboto;
+            color: aliceblue;
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+        }
+
+        .X-O-box {
+            margin-left: 10px;
+            background-color: #1f3540;
+            height: 430px;
+            width: 400px;
+            border: solid;
+            border-radius: 24px;
+            border-color: #1f3540;
+            box-shadow: 3px 5px 1px #141d21;
+
+        }
+        
+        .head-of-box {
+            margin-top: 10px;
+            height: 40px;
+            /* border: solid; */
+            padding-top: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+
+        }
+
+        .left {
+            /* border: solid; */
+            padding-top: 8px;
+            width: 110px;
+        }
+
+        .middle {
+            /* border: solid; */
+            background-color: #243741;
+            border-radius: 6px;
+            border-color: #1f3540;
+            box-shadow: 1px 4px 1px #141d21;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0px 40px;
+        }
+
+        .img-svr {
+            color: white;
+            width: 25px;
+
+        }
+
+        .img-svr-middle {
+            color: white;
+            width: 14px;
+            margin-right: 4px;
+
+        }
+
+        .right {
+            flex: 40px;
+
+            display: flex;
+            justify-content: end;
+            align-items: center;
+        }
+
+        .box-repeat {
+            cursor: pointer;
+            background-color: #4e6c7c;
+            display: end;
+            width: 35px;
+            height: 35px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 1px 4px 1px #141d21;
+        }
+
+        .repeat {
+            width: 18px;
+        }
+
+        .box-repeat:active {
+            margin-top: 4px;
+            box-shadow: 0px 1px 1px #141d21;
+        }
+
+        .boxs-active {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 30px 30px 30px;
+            margin-left: 30px;
+            margin-right: 10px;
+        }
+
+        .each-box {
+            cursor: pointer;
+            display: flex;
+            height: 80px;
+            width: 100px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 12px;
+            background-color: #243741;
+            box-shadow: 1px 4px 1px #141d21;
+        }
+
+        .each-box:active {
+            margin-top: 2px;
+            box-shadow: 0px 1px 1px #141d21;
+        }
+
+        .center-item {
+            width: 60px;
+        }
+
+        .scores {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 30px 30px 30px;
+            margin-left: 30px;
+            margin-right: 10px;
+        }
+
+        .score {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 45px;
+            width: 100px;
+            color: #243741;
+            font-weight: bold;
+            border-radius: 12px;
+            background-color: #243741;
+            box-shadow: 1px 4px 1px #141d21;
+        }
+
+        .score:active {
+            margin-top: 2px;
+            box-shadow: 0px 1px 1px #141d21;
+        }
+
+        .X-O-choose {
+            background-color: #1f3540;
+            height: 430px;
+            width: 400px;
+            border: solid;
+            border-radius: 24px;
+            border-color: #1f3540;
+            box-shadow: 3px 5px 1px #141d21;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: grid;
+            grid-template-rows: 1fr 1px 1fr;
+            /* grid-row-gap: 0px; */
+
+        }
+
+        .choose {
+            /* border: solid; */
+            width: 300px;
+            height: 120px;
+            border-radius: 12px;
+            margin-top: 100px;
+            background-color: #192a32;
+            /* display:  flex; */
+            justify-content: center;
+            align-items: center;
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+        }
+
+        .pick-p {
+            color: #a8bfc9;
+            margin: auto;
+            margin-bottom: 4px;
+        }
+
+        .X-O {
+            width: 180px;
+            height: 45px;
+            border-radius: 12px;
+            /* border:  solid; */
+            /* margin: auto; */
+            display: grid;
+            background-color: #1f3540;
+            grid-template-columns: 1fr 1fr;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .remember {
+            font-size: 12px;
+            font-weight: bold;
+            margin: auto;
+            color: #456575;
+        }
+
+        .X-o-icons {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* border: solid; */
+            padding: 4px 2px;
+            margin: 2px;
+            border-radius: 12px;
+            transition: background-color 0.2s;
+        }
+
+        .X-o-icons:hover {
+            transition: background-color 0.2s;
+            background-color: rgb(44, 67, 79);
+            box-shadow: 1px 3px 1px #141d21;
+        }
+
+        .X-o-icons:active {
+            transition: background-color 0.2s;
+            background-color: #192a32;
+            margin-top: 3px;
+            box-shadow: 1px 2px 1px #141d21;
+
+        }
+
+        .box-cpu {
+            box-shadow: 1px 3px 1px #141d21;
+            cursor: pointer;
+            background-color: #30c4bd;
+            margin: auto;
+            font-size: 14px;
+            padding: 0px 20px;
+            border-radius: 12px;
+            padding: 10px;
+        }
+
+        .box-cpu:active {
+            box-shadow: 1px 2px 1px #141d21;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .yellow {
+            background-color: #ecb030;
+        }
+
+        .blue {
+            background-color: #30c4bda3;
+        }
+
+        @keyframes rotate-scale-up {
+            0% {
+                transform: scale(0.2);
+            }
+
+            50% {
+                transform: scale(0.5);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        #box-of-start {
+            animation: rotate-scale-up 0.3s linear both;
+        }
+        
+        #box-of-start {
+            animation: rotate-scale-up 0.3s linear both;
+        }
+        /* restart playing */
+        .restar-playing {
+            /* border: solid; */
+            width: 300px;
+            height: 220px;
+            border-radius: 12px;
+            margin-top: 100px;
+            background-color: #192a32;
+            /* display:  flex; */
+            justify-content: center;
+            align-items: center;
+            display: grid;
+            grid-template-rows: 1fr 30px -2px;
+        }
+        .whos-win {
+            width: 200px;
+            height: 70px;
+            border-radius: 12px;
+            /* border:  solid; */
+            /* margin: auto; */
+            display: grid;
+            background-color: #1f3540;
+            grid-template-columns: 55px 1fr;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 2px 4px 1px #141d21;
+            
+        }
+        .X-o-icons-win {
+            padding: 0px 0px;
+            margin: auto;
+            transition: background-color 0.2s;
+            width: 20px;
+        }
+        .takes
+        {
+            /* margin-right: 12px; */
+            /* cursor: pointer; */
+            font-family: Roboto;
+            font-size: 18px;
+        }
+        .X-O-another {
+            cursor: pointer;
+            box-shadow: 1px 3px 1px #141d21;
+            width: 180px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1f3540;
+            /* grid-template-columns: 1fr 1fr; */
+            justify-content: center;
+            align-items: center;
+            margin: auto; background-color: #4e6c7c;
+            
+        }
+        .reset_color
+        {
+            background-color: #1f3540;
+        }
+        #restar {
+            animation: rotate-scale-up 0.3s linear both;
+        }
+    </style>
+</head>
+
+<body class="body">
+
+    <!-- choose the element -->
+    <div id="box-of-choosing" class="X-O-choose">
+
+        <div class="choose">
+            <div class="pick-p">
+                <h4 class="pick-p">Pick player's mark</h4>
+            </div>
+            <div class="X-O">
+                <div onclick="select_element('X', 1)" id="x-icon-selcted" class="X-o-icons"><img style="width: 25px;"
+                        src="./X-2.png" alt=""></div>
+                <div onclick="select_element('O', 2)" id="o-icon-selcted" class="X-o-icons"><img style="width: 25px;"
+                        src="./O-2.png" alt=""></div>
+            </div>
+            <div class="remember">
+                <p style="margin-top: 2px; margin-bottom: 2px;"> Remember : X goes first</p>
+            </div>
+        </div>
+        <div style="margin-top: 40px;" class="box-cpu"> NEW GAME WITH CPU</div>
+        <div onclick="ft_startPlay()" style="background-color: #ecb230;" class="box-cpu"> NEW GAME WITH (VS PLAYER)
+        </div>
+    </div>
+
+    <!-- start to play -->
+    <div id="box-of-start" class="X-O-box hidden">
+        <div>
+            <div class="head-of-box">
+                <div class="left">
+                    <img class="img-svr" src="./X-2.png">
+                    <img class="img-svr" src="./O-2.png">
+                </div>
+                <div class="middle">
+                    <div id="turn-img"></div>
+                    <!-- <img class="img-svr-middle" src="./X-2.png">  -->
+                    <h4 style="font-size: 14px;
+                        color: #4e6c7c;">Turn</h4>
+                </div>
+                <div class="right">
+                    <div onclick="clear_the_window()" class="box-repeat"> <img class="repeat" src="./repeat.png"></div>
+                </div>
+            </div>
+            <div id="allboxs">
+                <div class="boxs-active">
+                    <div id="box1" onclick="x_o(1)" class="each-box"></div>
+                    <div id="box2" onclick="x_o(2)" class="each-box"></div>
+                    <div id="box3" onclick="x_o(3)" class="each-box"></div>
+                </div>
+                <div class="boxs-active">
+                    <div id="box4" onclick="x_o(4)" class="each-box"></div>
+                    <div id="box5" onclick="x_o(5)" class="each-box"></div>
+                    <div id="box6" onclick="x_o(6)" class="each-box"></div>
+                </div>
+                <div class="boxs-active">
+                    <div id="box7" onclick="x_o(7)" class="each-box"></div>
+                    <div id="box8" onclick="x_o(8)" class="each-box"></div>
+                    <div id="box9" onclick="x_o(9)" class="each-box"></div>
+                </div>
+
+            </div>
+                <div id="restar" class="hidden" class="X-O-choose">
+                    <div   class="restar-playing" style="margin: auto; margin-bottom: 35px; margin-top: 35px; ">
+                            <div class="whos-win">
+                                <div  id="icon-who-win" class="X-o-icons-win"><img style="width: 25px;"
+                                    src="./X-2.png" ></div>
+                                <h4 class="takes">Takes the round</h4>
+                            </div>
+                            <div onclick="replay()" class="X-O-another" >
+                                <h3> Another Round</h3>
+                            </div>
+                            <div onclick="quit()" class="X-O-another" style="background-color: #9b9b9b;">
+                                <h3>Quit</h3>
+                            </div>
+                    </div>
+                 </div>
+            </div>
+            <div class="scores">
+                <div id="pl1" style="background-color: #30c4bd;" class="score"> Player 1(0)</div>
+                <div id="ties" style="background-color: #4e6c7c; color: rgb(213, 213, 213);" class="score">Ties(0)</div>
+                <div id="pl2" style="background-color: #ecb230;" class="score">Player 2(0)</div>
+            </div>
+    </div>
+    <!-- restart playing -->
+
+    <div lass="X-O-choose">
+       
+    </div> 
+    <script>
+        let moves = 0;
+        let score_p1 = 0;
+        let score_p2 = 0;
+        let ties_c = 0;
+        let counter = 0;
+
+        let player1_selected = null;
+        let player2_selected = null;
+        let currentPlayer = 1;
+        function x_o(boxNumber) {
+            moves++;
+            let wo;
+            let clickedBox = document.getElementById('box' + boxNumber);
+            if (!clickedBox.innerHTML) {
+                clickedBox.appendChild(createImg(currentPlayer));
+                currentPlayer = currentPlayer === 1 ? 2 : 1;
+                updateTurnImage();
+            }
+            let win = check_whos_win();
+            if(win)
+            {
+                if(win == "<img class=\"center-item\" src=\"./X-2.png\">")
+                {
+                    wo = "X";
+                    score_p1++;
+                    console.log(score_p1);
+                }
+                else if(win == "<img class=\"center-item\" src=\"./O-2.png\">")
+                {
+                    wo = "O";
+                    score_p2++;
+                    console.log(score_p2);
+                }
+                show_the_result(wo, 0);
+                return
+            }
+            if(tie())
+            {
+                console.log('tie');
+                ties_c++;
+                show_the_result(wo, 1);
+            }
+        }
+        function createImg(player) {
+            let img = document.createElement("img");
+            img.className = "center-item";
+            img.src = "./" + (player === 1 ? player1_selected : player2_selected) + "-2.png";
+            return img;
+        }
+
+        function updateTurnImage() {
+            let turn = document.getElementById('turn-img');
+            let imgSrc = `./${currentPlayer === 1 ? player1_selected : player2_selected}-2.png`;
+            turn.innerHTML = `<img class="img-svr-middle" src="${imgSrc}">`;
+        }
+
+        function clear_the_window() {
+            let i = 0;
+            while (i < 9) {
+                let clickedBox = document.getElementById('box' + (i + 1));
+                clickedBox.innerHTML = "";
+                i++;
+            }
+        }
+        function select_element(element, but) {
+            // console.log()
+            if (but == 2) {
+                player2_selected = element;
+                console.log('player 2 ' + element);
+                let change_o = document.getElementById('o-icon-selcted');
+                change_o.classList.add('blue');
+            }
+            if (but == 1) {
+                player1_selected = element;
+                console.log('player 1 ' + element);
+                let change_x = document.getElementById('x-icon-selcted');
+                change_x.classList.add('yellow');
+                // player2_selected = null;
+                // player1_selected = null;
+            }
+        }
+        function ft_startPlay() {
+            if (player1_selected && player2_selected) {
+                document.getElementById('box-of-choosing').classList.add('hidden');
+                document.getElementById('box-of-start').classList.remove('hidden');
+                let turn = document.getElementById('turn-img');
+                turn.innerHTML = "<img class=\"img-svr-middle\" src=\"./" + player1_selected + "-2.png\">";
+                
+                let color = document.getElementById('x-icon-selcted');
+                let color_1 = document.getElementById('o-icon-selcted');
+                color_1.classList.add('reset_color');
+                color.classList.add('reset_color');
+
+                let score_pl1 = document.getElementById('pl1');
+                let score_pl2 = document.getElementById('pl2');
+                score_pl1.innerHTML = "Player 1("+ score_p1 +")";
+                score_pl2.innerHTML = "Player 2("+ score_p2 +")";
+            }
+        }
+        function tie()
+        {
+            let buttons = document.querySelectorAll('.each-box');
+            
+            let tete;
+            let i = 0;
+            let counter = 0;
+
+            tete = buttons[i].innerHTML;
+            buttons.length
+            while(i < buttons.length)
+            {
+                tete = buttons[i].innerHTML;
+                if(tete == "<img class=\"center-item\" src=\"./X-2.png\">" ||
+                    tete == "<img class=\"center-item\" src=\"./O-2.png\">")
+                    counter++;
+                i++;
+            }
+            console.log('counter', counter);
+            if(counter == 9)
+                return true;
+            return (false);
+        }
+
+        function check_whos_win() {
+            if (moves < 5)
+            return;
+        
+            let buttons = document.querySelectorAll('.each-box');
+        
+            const winCombos = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6]
+            ];
+        
+            for (const combo of winCombos) {
+                let [a, b, c] = combo;
+            
+                if (buttons[a].innerHTML === buttons[b].innerHTML &&
+                    buttons[b].innerHTML === buttons[c].innerHTML &&
+                        buttons[a].innerHTML !== ''
+                )
+                {
+
+                    return buttons[a].innerHTML;
+                }
+            }
+        return null;
+    }
+    function show_the_result(wo, numb)
+    {
+        if(numb === 0)
+        {
+            let restar = document.getElementById('restar');
+            let allboxs = document.getElementById('allboxs');
+            let icon_win = document.getElementById('icon-who-win');
+            icon_win.innerHTML = "<img style=\"width: 25px;\" src=\"./"+wo+"-2.png\" ></div>"
+            restar.classList.toggle('hidden');
+            allboxs.classList.toggle('hidden');
+            let score_pl1 = document.getElementById('pl1');
+            let score_pl2 = document.getElementById('pl2');
+            score_pl1.innerHTML = "Player 1("+ score_p1 +")";
+            score_pl2.innerHTML = "Player 2("+ score_p2 +")";
+            
+            
+        }
+        if(numb === 1)
+        {
+            let ties = document.getElementById('ties');
+            console.log(ties.innerHTML);
+            ties.innerHTML = "Ties(" +  ties_c + ")";
+        }
+
+    }
+   
+    function replay()
+    {
+        let restar = document.getElementById('restar');
+        let allboxs = document.getElementById('allboxs');
+        restar.classList.toggle('hidden');
+        allboxs.classList.toggle('hidden');
+        clear_the_window();
+    }
+    function quit()
+    {
+        score_p1 = 0;
+        score_p2 = 0;
+        document.getElementById('box-of-start').classList.add('hidden');
+        document.getElementById('box-of-choosing').classList.remove('hidden');
+        let change_o = document.getElementById('o-icon-selcted');
+        // change_o.classList.remove('blue');
+        // let change_x = document.getElementById('x-icon-selcted');
+        // change_x.classList.remove('yellow');
+        // player2_selected = null;
+        // player1_selected = null;
+        replay();
+    }
+    </script>
+</body>
+
+</html>
